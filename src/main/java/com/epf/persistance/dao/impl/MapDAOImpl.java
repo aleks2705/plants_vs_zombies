@@ -16,22 +16,47 @@ public class MapDAOImpl implements MapDAO {
     }
 
     @Override
-    public Map get(int id_map) throws SQLException {
-        return null;
+    public Map get(int id_map) {
+        return jdbcTemplate.queryForObject("SELECT * FROM map WHERE id_map = ?",
+                new Object[]{id_map},
+                (rs, rowNum) -> new Map(
+                        rs.getInt("id_map"),
+                        rs.getInt("ligne"),
+                        rs.getInt("colonne"),
+                        rs.getString("chemin_image")
+                )
+        );
     }
 
     @Override
-    public List<Map> getAll() throws SQLException {
-        return List.of();
+    public List<Map> getAll() {
+        return jdbcTemplate.query("SELECT * FROM map",
+                (rs, rowNum) -> new Map(
+                        rs.getInt("id_map"),
+                        rs.getInt("ligne"),
+                        rs.getInt("colonne"),
+                        rs.getString("chemin_image")
+                )
+        );
     }
 
     @Override
-    public void createMap(Map map) throws SQLException {
-
+    public void createMap(Map map) {
+        jdbcTemplate.update("INSERT INTO map " +
+                "(id_map," +
+                "ligne," +
+                "colonne," +
+                "chemin_image)" +
+                "VALUES (?, ?, ?, ?)",
+                map.getId_map(),
+                map.getLigne(),
+                map.getColonne(),
+                map.getChemin_image()
+                );
     }
 
     @Override
-    public void updateMap(Map map) throws SQLException {
+    public void updateMap(Map map) {
         jdbcTemplate.update("UPDATE map SET ligne = ?, colonne = ?, chemin_image = ? WHERE id_map = ?",
                 map.getLigne(),
                 map.getColonne(),
@@ -40,7 +65,7 @@ public class MapDAOImpl implements MapDAO {
     }
 
     @Override
-    public void deleteMap(Map map) throws SQLException {
+    public void deleteMap(Map map) {
         jdbcTemplate.update("DELETE FROM map WHERE id_map = ?", map.getId_map());
     }
 }

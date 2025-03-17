@@ -16,22 +16,67 @@ public class PlanteDAOImpl implements PlanteDAO {
     }
 
     @Override
-    public Plante get(int id_plante) throws SQLException {
-        return null;
+    public Plante get(int id_plante) {
+        return jdbcTemplate.queryForObject("SELECT * FROM plante WHERE id_plante = ?",
+                new Object[]{id_plante},
+                (rs, rowNum) -> new Plante(
+                        rs.getInt("id_plante"),
+                        rs.getString("nom"),
+                        rs.getInt("point_de_vie"),
+                        rs.getBigDecimal("attaque_par_seconde"),
+                        rs.getInt("degat_attaque"),
+                        rs.getInt("cout"),
+                        rs.getBigDecimal("soleil_par_seconde"),
+                        rs.getObject("effet", Plante.Effet.class),
+                        rs.getString("chemin_image")
+                )
+        );
     }
 
     @Override
-    public List<Plante> getAll() throws SQLException {
-        return List.of();
+    public List<Plante> getAll() {
+        return jdbcTemplate.query("SELECT * FROM plante",
+                (rs, rowNum) -> new Plante(
+                        rs.getInt("id_plante"),
+                        rs.getString("nom"),
+                        rs.getInt("point_de_vie"),
+                        rs.getBigDecimal("attaque_par_seconde"),
+                        rs.getInt("degat_attaque"),
+                        rs.getInt("cout"),
+                        rs.getBigDecimal("soleil_par_seconde"),
+                        rs.getObject("effet", Plante.Effet.class),
+                        rs.getString("chemin_image")
+                )
+        );
     }
 
     @Override
-    public void createPlante(Plante plante) throws SQLException {
-
+    public void createPlante(Plante plante) {
+        jdbcTemplate.update("INSERT INTO plante " +
+                "(id_plante," +
+                "nom," +
+                "point_de_vie," +
+                "attaque_par_seconde," +
+                "degat_attaque," +
+                "cout," +
+                "soleil_par_seconde," +
+                "effet," +
+                "chemin_image)" +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?,?)",
+                plante.getId_plante(),
+                plante.getNom(),
+                plante.getPoint_de_vie(),
+                plante.getAttaque_par_seconde(),
+                plante.getDegat_attaque(),
+                plante.getCout(),
+                plante.getSoleil_par_seconde(),
+                plante.getEffet(),
+                plante.getChemin_image()
+        );
     }
 
     @Override
-    public void updatePlante(Plante plante) throws SQLException {
+    public void updatePlante(Plante plante) {
         jdbcTemplate.update("UPDATE plante SET " +
                 "nom = ?, " +
                 "point_de_vie = ?, " +
@@ -40,7 +85,7 @@ public class PlanteDAOImpl implements PlanteDAO {
                 "cout = ?," +
                 "soleil_par_seconde = ?," +
                 "effet = ?," +
-                "chemin_image = ?"+
+                "chemin_image = ? "+
                 "WHERE id_plante = ?",
                 plante.getNom(),
                 plante.getPoint_de_vie(),
@@ -54,7 +99,7 @@ public class PlanteDAOImpl implements PlanteDAO {
     }
 
     @Override
-    public void deletePlante(Plante plante) throws SQLException {
+    public void deletePlante(Plante plante) {
         jdbcTemplate.update("DELETE FROM plante WHERE id_plante = ?", plante.getId_plante());
     }
 }
