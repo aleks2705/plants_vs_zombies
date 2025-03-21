@@ -101,7 +101,7 @@ public class ZombieDAOImpl implements ZombieDAO {
                 "degat_attaque = ?, " +
                 "vitesse_de_deplacement = ?, " +
                 "chemin_image = ?, " +
-                "id_map = ?, " +
+                "id_map = ? " +
                 "WHERE id_zombie = ?",
                 zombie.getNom(),
                 zombie.getPoint_de_vie(),
