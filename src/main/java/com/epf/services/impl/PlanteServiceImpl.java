@@ -3,9 +3,12 @@ package com.epf.services.impl;
 import com.epf.models.Plante;
 import com.epf.persistance.dao.PlanteDAO;
 import com.epf.services.PlanteService;
+import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
+import java.util.List;
 
+@Service
 public class PlanteServiceImpl implements PlanteService {
     private final PlanteDAO planteDAO;
 
@@ -15,12 +18,22 @@ public class PlanteServiceImpl implements PlanteService {
 
     @Override
     public Plante getPlante(int id) {
-        return planteDAO.get(id);
+        try {
+            return planteDAO.get(id);
+        }catch (SQLException e){
+            System.err.println("Erreur lors de la get de la plante:" + e.getMessage());
+        }
+        return null;
     }
 
     @Override
     public List<Plante> getAllPlantes() {
-        return planteDAO.getAll();
+        try {
+            return planteDAO.getAll();
+        }catch (SQLException e){
+            System.err.println("Erreur lors de la getAll de la plante:" + e.getMessage());
+        }
+        return null;
     }
 
     @Override

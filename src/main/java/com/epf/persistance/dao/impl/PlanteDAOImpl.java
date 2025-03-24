@@ -3,10 +3,12 @@ package com.epf.persistance.dao.impl;
 import com.epf.models.Plante;
 import com.epf.persistance.dao.PlanteDAO;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class PlanteDAOImpl implements PlanteDAO {
 
     private final JdbcTemplate jdbcTemplate;

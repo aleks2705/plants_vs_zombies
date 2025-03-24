@@ -3,10 +3,12 @@ package com.epf.persistance.dao.impl;
 import com.epf.models.Map;
 import com.epf.persistance.dao.MapDAO;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class MapDAOImpl implements MapDAO {
 
     private final JdbcTemplate jdbcTemplate;

@@ -33,13 +33,13 @@ public class MapController {
 
     @PostMapping
     public void createMap(@RequestBody MapDTO mapDTO) {
-        Map map = new Map(mapDTO.getId(), mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getChemin_image());
+        Map map = new Map(mapDTO.getId(), mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getCheminImage());
         mapService.createMap(map);
     }
 
     @PutMapping("/{id}")
     public void updateMap(@PathVariable int id, @RequestBody MapDTO mapDTO) {
-        Map map = new Map(id, mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getChemin_image());
+        Map map = new Map(id, mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getCheminImage());
         mapService.updateMap(map);
     }
 

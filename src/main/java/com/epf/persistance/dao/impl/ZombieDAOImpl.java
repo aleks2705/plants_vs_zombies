@@ -3,10 +3,12 @@ package com.epf.persistance.dao.impl;
 import com.epf.models.Zombie;
 import com.epf.persistance.dao.ZombieDAO;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.sql.SQLException;
 import java.util.List;
 
+@Repository
 public class ZombieDAOImpl implements ZombieDAO {
 
     private final JdbcTemplate jdbcTemplate;
