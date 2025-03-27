@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Zombie {
     private int id_zombie;
-    private String nom; //pk pas meme couleur
+    private String nom;
     private int point_de_vie;
     private BigDecimal attaque_par_seconde;
     private int degat_attaque;

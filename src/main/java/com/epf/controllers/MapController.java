@@ -45,7 +45,6 @@ public class MapController {
 
     @DeleteMapping("/{id}")
     public void deleteMap(@PathVariable int id) {
-        Map map = new Map(id, 0, 0, null);
-        mapService.deleteMap(map);
+        mapService.deleteMap(id);
     }
 }

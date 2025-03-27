@@ -29,7 +29,7 @@ public class PlanteDAOImpl implements PlanteDAO {
                         rs.getInt("degat_attaque"),
                         rs.getInt("cout"),
                         rs.getBigDecimal("soleil_par_seconde"),
-                        rs.getObject("effet", Plante.Effet.class),
+                        Plante.Effet.valueOf(rs.getString("effet")),
                         rs.getString("chemin_image")
                 )
         );
@@ -101,7 +101,7 @@ public class PlanteDAOImpl implements PlanteDAO {
     }
 
     @Override
-    public void deletePlante(Plante plante) {
-        jdbcTemplate.update("DELETE FROM plante WHERE id_plante = ?", plante.getId_plante());
+    public void deletePlante(int id) {
+        jdbcTemplate.update("DELETE FROM plante WHERE id_plante = ?", id);
     }
 }

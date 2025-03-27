@@ -57,9 +57,9 @@ public class MapServiceImpl implements MapService {
     }
 
     @Override
-    public void deleteMap(Map map) {
+    public void deleteMap(int id) {
         try {
-            mapDao.deleteMap(map);
+            mapDao.deleteMap(id);
         }catch (SQLException e){
             System.err.println("Erreur lors de la supression de la map:" + e.getMessage());
         }

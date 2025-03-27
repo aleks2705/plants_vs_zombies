@@ -12,5 +12,5 @@ public interface PlanteDAO {
 
     void createPlante(Plante plante) throws SQLException;
     void updatePlante(Plante plante) throws SQLException;
-    void deletePlante(Plante plante) throws SQLException;
+    void deletePlante(int id) throws SQLException;
 }

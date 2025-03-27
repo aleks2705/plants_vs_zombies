@@ -12,5 +12,5 @@ public interface MapDAO {
 
     void createMap(Map map) throws SQLException;
     void updateMap(Map map) throws SQLException;
-    void deleteMap(Map map) throws SQLException;
+    void deleteMap(int id) throws SQLException;
 }

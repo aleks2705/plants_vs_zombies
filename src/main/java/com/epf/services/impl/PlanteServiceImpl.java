@@ -55,9 +55,9 @@ public class PlanteServiceImpl implements PlanteService {
     }
 
     @Override
-    public void deletePlante(Plante plante) {
+    public void deletePlante(int id) {
         try {
-            planteDAO.deletePlante(plante);
+            planteDAO.deletePlante(id);
         }catch (SQLException e){
             System.err.println("Erreur lors de la supression de la plante:" + e.getMessage());
         }

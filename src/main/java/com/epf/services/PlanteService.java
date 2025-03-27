@@ -10,6 +10,6 @@ public interface PlanteService {
     List<Plante> getAllPlantes();
     void createPlante(Plante plante);
     void updatePlante(Plante plante);
-    void deletePlante(Plante plante);
+    void deletePlante(int id);
 
 }

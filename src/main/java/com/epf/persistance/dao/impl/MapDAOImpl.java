@@ -67,7 +67,7 @@ public class MapDAOImpl implements MapDAO {
     }
 
     @Override
-    public void deleteMap(Map map) {
-        jdbcTemplate.update("DELETE FROM map WHERE id_map = ?", map.getId_map());
+    public void deleteMap(int id) {
+        jdbcTemplate.update("DELETE FROM map WHERE id_map = ?", id);
     }
 }
