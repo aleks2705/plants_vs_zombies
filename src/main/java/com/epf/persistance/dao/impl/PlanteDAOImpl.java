@@ -46,7 +46,7 @@ public class PlanteDAOImpl implements PlanteDAO {
                         rs.getInt("degat_attaque"),
                         rs.getInt("cout"),
                         rs.getBigDecimal("soleil_par_seconde"),
-                        rs.getObject("effet", Plante.Effet.class),
+                        Plante.Effet.valueOf(rs.getString("effet").toUpperCase().replace(" ", "_")), //rs.getObject() fonctionne que pour types simlples
                         rs.getString("chemin_image")
                 )
         );
