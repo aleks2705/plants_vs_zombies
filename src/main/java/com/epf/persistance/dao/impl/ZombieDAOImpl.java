@@ -5,7 +5,6 @@ import com.epf.persistance.dao.ZombieDAO;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -13,14 +12,14 @@ public class ZombieDAOImpl implements ZombieDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public ZombieDAOImpl(JdbcTemplate jdbcTemplate){
+    public ZombieDAOImpl(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
     public Zombie get(int id_zombie) {
         return jdbcTemplate.queryForObject("SELECT * FROM zombie WHERE id_zombie = ?",
-                new Object[]{id_zombie},
+                new Object[] { id_zombie },
                 (rs, rowNum) -> new Zombie(
                         rs.getInt("id_zombie"),
                         rs.getString("nom"),
@@ -29,17 +28,16 @@ public class ZombieDAOImpl implements ZombieDAO {
                         rs.getInt("degat_attaque"),
                         rs.getBigDecimal("vitesse_de_deplacement"),
                         rs.getString("chemin_image"),
-                        rs.getObject("id_map", Integer.class)
-                )
-        );
+                        rs.getObject("id_map", Integer.class)));
     }
 
     @Override
     public List<Zombie> getAll() {
         /*
-        jdbcTemplate.query(SQL, RowMapper, args …) RowMapper func qui trans lignes result SQL en un objet Java
-        args =valeurs pour remplacer les '?'
-        */
+         * jdbcTemplate.query(SQL, RowMapper, args …) RowMapper func qui trans lignes
+         * result SQL en un objet Java
+         * args =valeurs pour remplacer les '?'
+         */
         return jdbcTemplate.query("SELECT * FROM zombie",
                 (rs, rowNum) -> new Zombie(
                         rs.getInt("id_zombie"),
@@ -49,15 +47,14 @@ public class ZombieDAOImpl implements ZombieDAO {
                         rs.getInt("degat_attaque"),
                         rs.getBigDecimal("vitesse_de_deplacement"),
                         rs.getString("chemin_image"),
-                        rs.getObject("id_map", Integer.class) //getObject peut etre "null" prc id_map peut etre "0"
-                )
-        );
+                        rs.getObject("id_map", Integer.class) // getObject peut etre "null" prc id_map peut etre "0"
+                ));
     }
 
     @Override
     public List<Zombie> getZombiesByMap(int id_map) {
         return jdbcTemplate.query("SELECT * FROM zombie WHERE id_map = ?",
-                new Object[]{id_map},       //Parametre pour le ?, Spring JDBC veut toujours un tableau avec .query
+                new Object[] { id_map }, // Parametre pour le ?, Spring JDBC veut toujours un tableau avec .query
                 (rs, rowNum) -> new Zombie(
                         rs.getInt("id_zombie"),
                         rs.getString("nom"),
@@ -66,23 +63,21 @@ public class ZombieDAOImpl implements ZombieDAO {
                         rs.getInt("degat_attaque"),
                         rs.getBigDecimal("vitesse_de_deplacement"),
                         rs.getString("chemin_image"),
-                        rs.getObject("id_map", Integer.class)
-                )
-        );
+                        rs.getObject("id_map", Integer.class)));
     }
 
     @Override
     public void createZombie(Zombie zombie) {
         jdbcTemplate.update("INSERT INTO zombie " +
-                        "(id_zombie," +
-                        "nom, " +
-                        "point_de_vie, " +
-                        "attaque_par_seconde, " +
-                        "degat_attaque, " +
-                        "vitesse_de_deplacement, " +
-                        "chemin_image, " +
-                        "id_map) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                "(id_zombie," +
+                "nom, " +
+                "point_de_vie, " +
+                "attaque_par_seconde, " +
+                "degat_attaque, " +
+                "vitesse_de_deplacement, " +
+                "chemin_image, " +
+                "id_map) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                 zombie.getId_zombie(),
                 zombie.getNom(),
                 zombie.getPoint_de_vie(),
@@ -90,8 +85,7 @@ public class ZombieDAOImpl implements ZombieDAO {
                 zombie.getDegat_attaque(),
                 zombie.getVitesse_de_deplacement(),
                 zombie.getChemin_image(),
-                zombie.getId_map()
-                );
+                zombie.getId_map());
     }
 
     @Override
@@ -116,11 +110,12 @@ public class ZombieDAOImpl implements ZombieDAO {
     }
 
     @Override
-    public void deleteZombie(Zombie zombie) {
-        jdbcTemplate.update("DELETE FROM zombie WHERE id_zombie = ?", zombie.getId_zombie());
+    public void deleteZombie(int id) {
+        jdbcTemplate.update("DELETE FROM zombie WHERE id_zombie = ?", id);
         /*
-        ? est un espace réservé. JDBC remplace auto ? par zombie.getId_zombie
-        JDBC empeche une injection en traitant l'entrée comme une valeur et non du code SQL
-        */
+         * ? est un espace réservé. JDBC remplace auto ? par zombie.getId_zombie
+         * JDBC empeche une injection en traitant l'entrée comme une valeur et non du
+         * code SQL
+         */
     }
 }

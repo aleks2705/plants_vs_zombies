@@ -5,7 +5,6 @@ import com.epf.persistance.dao.PlanteDAO;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.sql.SQLException;
 import java.util.List;
 
 @Repository
@@ -20,7 +19,7 @@ public class PlanteDAOImpl implements PlanteDAO {
     @Override
     public Plante get(int id_plante) {
         return jdbcTemplate.queryForObject("SELECT * FROM plante WHERE id_plante = ?",
-                new Object[]{id_plante},
+                new Object[] { id_plante },
                 (rs, rowNum) -> new Plante(
                         rs.getInt("id_plante"),
                         rs.getString("nom"),
@@ -30,9 +29,7 @@ public class PlanteDAOImpl implements PlanteDAO {
                         rs.getInt("cout"),
                         rs.getBigDecimal("soleil_par_seconde"),
                         Plante.Effet.valueOf(rs.getString("effet")),
-                        rs.getString("chemin_image")
-                )
-        );
+                        rs.getString("chemin_image")));
     }
 
     @Override
@@ -46,10 +43,11 @@ public class PlanteDAOImpl implements PlanteDAO {
                         rs.getInt("degat_attaque"),
                         rs.getInt("cout"),
                         rs.getBigDecimal("soleil_par_seconde"),
-                        Plante.Effet.valueOf(rs.getString("effet").toUpperCase().replace(" ", "_")), //rs.getObject() fonctionne que pour types simlples
-                        rs.getString("chemin_image")
-                )
-        );
+                        Plante.Effet.valueOf(rs.getString("effet").toUpperCase().replace(" ", "_")), // rs.getObject()
+                                                                                                     // fonctionne que
+                                                                                                     // pour types
+                                                                                                     // simlples
+                        rs.getString("chemin_image")));
     }
 
     @Override
@@ -73,8 +71,7 @@ public class PlanteDAOImpl implements PlanteDAO {
                 plante.getCout(),
                 plante.getSoleil_par_seconde(),
                 plante.getEffet(),
-                plante.getChemin_image()
-        );
+                plante.getChemin_image());
     }
 
     @Override
@@ -87,7 +84,7 @@ public class PlanteDAOImpl implements PlanteDAO {
                 "cout = ?," +
                 "soleil_par_seconde = ?," +
                 "effet = ?," +
-                "chemin_image = ? "+
+                "chemin_image = ? " +
                 "WHERE id_plante = ?",
                 plante.getNom(),
                 plante.getPoint_de_vie(),
