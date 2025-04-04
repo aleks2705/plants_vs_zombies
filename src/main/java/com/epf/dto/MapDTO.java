@@ -1,24 +1,24 @@
 package com.epf.dto;
 
 public class MapDTO {
-    private int id;
+    private int id_map;
     private int ligne;
     private int colonne;
     private String cheminImage;
 
-    public MapDTO(int id, int ligne, int colonne, String cheminImage) {
-        this.id = id;
+    public MapDTO(int id_map, int ligne, int colonne, String cheminImage) {
+        this.id_map = id_map;
         this.ligne = ligne;
         this.colonne = colonne;
         this.cheminImage = cheminImage;
     }
 
-    public int getId() {
-        return id;
+    public int getId_map() {
+        return id_map;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_map(int id) {
+        this.id_map = id;
     }
 
     public int getLigne() {

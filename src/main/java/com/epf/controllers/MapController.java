@@ -33,7 +33,7 @@ public class MapController {
 
     @PostMapping
     public void createMap(@RequestBody MapDTO mapDTO) {
-        Map map = new Map(mapDTO.getId(), mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getCheminImage());
+        Map map = new Map(mapDTO.getId_map(), mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getCheminImage());
         mapService.createMap(map);
     }
 
