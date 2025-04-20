@@ -1,0 +1,20 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "PVZ API",
+    "description": "Documentation de l'API pvz",
+    "version": "1.0"
+  },
+  "paths": {
+    "/zombies": {
+      "get": {
+        "summary": "Liste les zombies",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,9 @@
 C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\config\AppConfig.java
 C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\config\webAppInitializor.java
+C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\config\WebConfig.java
 C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\controllers\MapController.java
 C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\controllers\PlanteController.java
+C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\controllers\SwaggerDocsController.java
 C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\controllers\ZombieController.java
 C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\dto\MapDTO.java
 C:\Users\epf1\Desktop\Java_templates\pvz\pvz_back\Java_courses\src\main\java\com\epf\dto\PlanteDTO.java
