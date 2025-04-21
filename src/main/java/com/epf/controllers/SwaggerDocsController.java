@@ -11,9 +11,9 @@ import java.nio.charset.StandardCharsets;
 @RestController
 @RequestMapping("/CoursEpfBack")
 public class SwaggerDocsController {
-    @GetMapping("/openapi.json")
+    @GetMapping("/src/main/openapi.json")
     public String getOpenApi() throws IOException {
-        InputStream inputStream = getClass().getResourceAsStream("/openapi.json");
+            InputStream inputStream = getClass().getResourceAsStream("/resources/openapi.json");
         if (inputStream == null) {
             throw new RuntimeException("Fichier openapi.json introuvable !");
         }
