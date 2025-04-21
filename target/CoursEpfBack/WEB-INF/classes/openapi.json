@@ -14,6 +14,98 @@
             "description": "Succès"
           }
         }
+      },
+      "post": {
+        "summary": "Crée un zombie",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "put": {
+        "summary": "Modifie un zombie",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Supprime un zombie",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      }
+    },
+    "/maps": {
+      "get": {
+        "summary": "Liste les maps",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crée une map",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "put": {
+        "summary": "Modifie une map",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Supprime une map",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      }
+    },
+    "/plantes": {
+      "get": {
+        "summary": "Liste les plantes",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "post": {
+        "summary": "Crée une plante",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "put": {
+        "summary": "Modifie une plante",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Supprime une plante",
+        "responses": {
+          "200": {
+            "description": "Succès"
+          }
+        }
       }
     }
   }

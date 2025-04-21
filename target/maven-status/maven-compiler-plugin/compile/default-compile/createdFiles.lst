@@ -4,6 +4,7 @@ com\epf\models\Plante.class
 com\epf\config\webAppInitializor.class
 com\epf\persistance\dao\MapDAO.class
 com\epf\controllers\PlanteController.class
+com\epf\controllers\OpenApiController.class
 com\epf\dto\PlanteDTO.class
 com\epf\services\PlanteService.class
 com\epf\services\impl\ZombieServiceImpl.class
