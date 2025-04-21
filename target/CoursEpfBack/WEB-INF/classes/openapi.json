@@ -5,6 +5,11 @@
     "description": "Documentation de l'API pvz",
     "version": "1.0"
   },
+  "servers": [
+    {
+      "url": "http://localhost:8080/CoursEpfBack"
+    }
+  ],
   "paths": {
     "/zombies": {
       "get": {
@@ -12,6 +17,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non trouvé"
           }
         }
       },
@@ -20,14 +28,68 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non créé"
           }
         }
       },
       "put": {
         "summary": "Modifie un zombie",
+        "requestBody":{
+          "required": true,
+          "content" : {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_zombie": {
+                    "type": "integer"
+                  },
+                  "nom": {
+                    "type": "string"
+                  },
+                  "point_de_vie": {
+                    "type": "integer"
+                  },
+                  "attaque_par_seconde": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "degat_attaque": {
+                    "type": "integer"
+                  },
+                  "vitesse_de_deplacement": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "chemin_image": {
+                    "type": "string"
+                  },
+                  "id_map": {
+                    "type": "integer",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "id_zombie",
+                  "nom",
+                  "point_de_vie",
+                  "attaque_par_seconde",
+                  "degat_attaque",
+                  "vitesse_de_deplacement",
+                  "chemin_image"
+                ]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Succès"
+            "description": "Zombie modifié"
+          },
+          "404": {
+            "description": "Zombie non trouvé"
           }
         }
       },
@@ -36,6 +98,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non supprimé"
           }
         }
       }
@@ -46,6 +111,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Map non trouvé"
           }
         }
       },
@@ -54,6 +122,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Map non créé"
           }
         }
       },
@@ -62,6 +133,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Map non modifiée"
           }
         }
       },
@@ -70,6 +144,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Map non supp"
           }
         }
       }
@@ -80,6 +157,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non trouvée"
           }
         }
       },
@@ -88,6 +168,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non créée"
           }
         }
       },
@@ -96,6 +179,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non modifiée"
           }
         }
       },
@@ -104,6 +190,9 @@
         "responses": {
           "200": {
             "description": "Succès"
+          },
+          "404": {
+            "description": "Plante non supp"
           }
         }
       }
