@@ -17,7 +17,7 @@ public class PlanteController {
         this.planteService = planteService;
     }
     @GetMapping("/{id}")
-    public PlanteDTO getPlante(@PathVariable int id) {
+    public PlanteDTO getPlante(@PathVariable("id") int id) {
         Plante plante = planteService.getPlante(id);
         return new PlanteDTO(plante.getId_plante(), plante.getNom(), plante.getPoint_de_vie(), plante.getAttaque_par_seconde(), plante.getDegat_attaque(), plante.getCout(), plante.getSoleil_par_seconde(), plante.getEffet(), plante.getChemin_image());
     }
@@ -42,7 +42,7 @@ public class PlanteController {
     }
 
     @DeleteMapping("/{id}")
-    public void deletePlante(@PathVariable int id) {
+    public void deletePlante(@PathVariable("id") int id) {
         planteService.deletePlante(id);
     }
 }

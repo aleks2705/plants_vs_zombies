@@ -19,7 +19,7 @@ public class MapController {
     }
 
     @GetMapping("/{id}")
-    public MapDTO getMap(@PathVariable int id) {
+    public MapDTO getMap(@PathVariable("id") int id) {
         Map map = mapService.getMap(id);
         return new MapDTO(map.getId_map(), map.getLigne(), map.getColonne(), map.getChemin_image());
     }
@@ -44,7 +44,7 @@ public class MapController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMap(@PathVariable int id) {
+    public void deleteMap(@PathVariable("id") int id) {
         mapService.deleteMap(id);
     }
 }

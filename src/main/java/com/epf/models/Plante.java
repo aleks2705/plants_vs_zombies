@@ -16,7 +16,11 @@ public class Plante {
 
     //on crée un enum pour l'effet de la plante
     public enum Effet{
-        NORMAL, SLOW_LOW, SLOW_MEDIUM, SLOW_STOP
+        NORMAL, SLOW_LOW, SLOW_MEDIUM, SLOW_STOP;
+        @com.fasterxml.jackson.annotation.JsonCreator
+        public static Effet fromString(String value) {
+            return value == null ? null : Effet.valueOf(value.toUpperCase().replace(" ", "_"));
+        }
     }
 
     //Constructeur
