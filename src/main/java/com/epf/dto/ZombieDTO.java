@@ -13,6 +13,9 @@ public class ZombieDTO {
     private String chemin_image;
     private Integer id_map;
 
+    public ZombieDTO() {
+    }
+
     public ZombieDTO(int id_zombie, String nom, int point_de_vie, BigDecimal attaque_par_seconde, int degat_attaque,
             BigDecimal vitesse_de_deplacement, String chemin_image, Integer id_map) {
         this.id_zombie = id_zombie;

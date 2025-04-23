@@ -15,6 +15,9 @@ public class PlanteDTO {
     private Plante.Effet effet;
     private String chemin_image;
 
+    public PlanteDTO() {
+    }
+
     public PlanteDTO(int id_plante, String nom, int point_de_vie, BigDecimal attaque_par_seconde, int degat_attaque, int cout, BigDecimal soleil_par_seconde, Plante.Effet effet, String chemin_image){
         this.id_plante = id_plante;
         this.nom = nom;

@@ -14,6 +14,7 @@
     "/zombies": {
       "get": {
         "summary": "Liste les zombies",
+        "tags": ["Zombies"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -25,6 +26,7 @@
       },
       "post": {
         "summary": "Crée un zombie",
+        "tags": ["Zombies"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -34,11 +36,36 @@
           }
         }
       },
+      "delete": {
+        "summary": "Supprime un zombie",
+        "tags": ["Zombies"],
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Zombie non supprimé"
+          }
+        }
+      }
+    },
+    "/zombies/{id}": {
       "put": {
         "summary": "Modifie un zombie",
-        "requestBody":{
+        "tags": ["Zombies"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
           "required": true,
-          "content" : {
+          "content": {
             "application/json": {
               "schema": {
                 "type": "object",
@@ -92,22 +119,12 @@
             "description": "Zombie non trouvé"
           }
         }
-      },
-      "delete": {
-        "summary": "Supprime un zombie",
-        "responses": {
-          "200": {
-            "description": "Succès"
-          },
-          "404": {
-            "description": "Zombie non supprimé"
-          }
-        }
       }
     },
     "/maps": {
       "get": {
         "summary": "Liste les maps",
+        "tags": ["Maps"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -119,6 +136,7 @@
       },
       "post": {
         "summary": "Crée une map",
+        "tags": ["Maps"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -128,19 +146,9 @@
           }
         }
       },
-      "put": {
-        "summary": "Modifie une map",
-        "responses": {
-          "200": {
-            "description": "Succès"
-          },
-          "404": {
-            "description": "Map non modifiée"
-          }
-        }
-      },
       "delete": {
         "summary": "Supprime une map",
+        "tags": ["Maps"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -151,9 +159,65 @@
         }
       }
     },
+    "/maps/{id}": {
+      "put": {
+        "summary": "Modifie une map",
+        "tags": ["Maps"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id_map": {
+                    "type": "integer"
+                  },
+                  "ligne": {
+                    "type": "integer"
+                  },
+                  "colonne": {
+                    "type": "integer"
+                  },
+                  "cheminImage": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id_map",
+                  "ligne",
+                  "colonne",
+                  "cheminImage"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Succès"
+          },
+          "404": {
+            "description": "Map non modifiée"
+          }
+        }
+      }
+    },
+
     "/plantes": {
       "get": {
         "summary": "Liste les plantes",
+        "tags": ["Plantes"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -165,6 +229,7 @@
       },
       "post": {
         "summary": "Crée une plante",
+        "tags": ["Plantes"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -176,6 +241,7 @@
       },
       "put": {
         "summary": "Modifie une plante",
+        "tags": ["Plantes"],
         "responses": {
           "200": {
             "description": "Succès"
@@ -187,6 +253,7 @@
       },
       "delete": {
         "summary": "Supprime une plante",
+        "tags": ["Plantes"],
         "responses": {
           "200": {
             "description": "Succès"

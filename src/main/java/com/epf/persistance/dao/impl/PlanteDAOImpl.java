@@ -35,20 +35,25 @@ public class PlanteDAOImpl implements PlanteDAO {
     @Override
     public List<Plante> getAll() {
         return jdbcTemplate.query("SELECT * FROM plante",
-                (rs, rowNum) -> new Plante(
-                        rs.getInt("id_plante"),
-                        rs.getString("nom"),
-                        rs.getInt("point_de_vie"),
-                        rs.getBigDecimal("attaque_par_seconde"),
-                        rs.getInt("degat_attaque"),
-                        rs.getInt("cout"),
-                        rs.getBigDecimal("soleil_par_seconde"),
-                        Plante.Effet.valueOf(rs.getString("effet").toUpperCase().replace(" ", "_")), // rs.getObject()
-                                                                                                     // fonctionne que
-                                                                                                     // pour types
-                                                                                                     // simlples
-                        rs.getString("chemin_image")));
+                (rs, rowNum) -> {
+                    String effetRaw = rs.getString("effet");
+                    Plante.Effet effet = effetRaw != null
+                            ? Plante.Effet.valueOf(effetRaw.toUpperCase().replace(" ", "_"))
+                            : null;
+                    return new Plante(
+                            rs.getInt("id_plante"),
+                            rs.getString("nom"),
+                            rs.getInt("point_de_vie"),
+                            rs.getBigDecimal("attaque_par_seconde"),
+                            rs.getInt("degat_attaque"),
+                            rs.getInt("cout"),
+                            rs.getBigDecimal("soleil_par_seconde"),
+                            effet,
+                            rs.getString("chemin_image")
+                    );
+                });
     }
+
 
     @Override
     public void createPlante(Plante plante) {

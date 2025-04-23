@@ -6,6 +6,9 @@ public class MapDTO {
     private int colonne;
     private String cheminImage;
 
+    public MapDTO() {
+    }
+
     public MapDTO(int id_map, int ligne, int colonne, String cheminImage) {
         this.id_map = id_map;
         this.ligne = ligne;
