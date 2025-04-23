@@ -19,7 +19,7 @@ public class MapController {
     }
 
     @GetMapping("/{id}")
-    public MapDTO getMap(@PathVariable int id) {
+    public MapDTO getMap(@PathVariable("id") int id) {
         Map map = mapService.getMap(id);
         return new MapDTO(map.getId_map(), map.getLigne(), map.getColonne(), map.getChemin_image());
     }
@@ -38,13 +38,13 @@ public class MapController {
     }
 
     @PutMapping("/{id}")
-    public void updateMap(@PathVariable int id, @RequestBody MapDTO mapDTO) {
+    public void updateMap(@PathVariable("id") int id, @RequestBody MapDTO mapDTO) {
         Map map = new Map(id, mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getCheminImage());
         mapService.updateMap(map);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteMap(@PathVariable int id) {
+    public void deleteMap(@PathVariable("id") int id) {
         mapService.deleteMap(id);
     }
 }

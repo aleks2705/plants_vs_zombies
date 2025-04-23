@@ -26,7 +26,7 @@ public class ZombieController {
     }
 
     @GetMapping("/{id}")
-    public ZombieDTO getzombie(@PathVariable int id) {
+    public ZombieDTO getzombie(@PathVariable("id") int id) {
         Zombie zombie = zombieService.getZombie(id);
         return new ZombieDTO(zombie.getId_zombie(), zombie.getNom(), zombie.getPoint_de_vie(),
                 zombie.getAttaque_par_seconde(), zombie.getDegat_attaque(), zombie.getVitesse_de_deplacement(),
@@ -52,7 +52,7 @@ public class ZombieController {
     }
 
     @PutMapping("/{id}")
-    public void updatezombie(@PathVariable int id, @RequestBody ZombieDTO zombieDTO) {
+    public void updatezombie(@PathVariable("id") int id, @RequestBody ZombieDTO zombieDTO) {
         Zombie zombie = new Zombie(zombieDTO.getId_zombie(), zombieDTO.getNom(), zombieDTO.getPoint_de_vie(),
                 zombieDTO.getAttaque_par_seconde(), zombieDTO.getDegat_attaque(), zombieDTO.getVitesse_de_deplacement(),
                 zombieDTO.getChemin_image(), zombieDTO.getId_map());
@@ -60,7 +60,7 @@ public class ZombieController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteZombie(@PathVariable int id) {
+    public void deleteZombie(@PathVariable("id") int id) {
         zombieService.deleteZombie(id);
     }
 }
