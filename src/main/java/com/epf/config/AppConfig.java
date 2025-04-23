@@ -21,7 +21,7 @@ public class AppConfig implements WebMvcConfigurer {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/pvz");
         dataSource.setUsername("root");
-        dataSource.setPassword("epf111");
+        dataSource.setPassword("alekseiEkb");
         return dataSource;
     }
 

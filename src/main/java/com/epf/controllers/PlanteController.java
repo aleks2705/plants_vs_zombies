@@ -36,7 +36,7 @@ public class PlanteController {
     }
 
     @PutMapping("/{id}")
-    public void updatePlante(@PathVariable int id, @RequestBody PlanteDTO planteDTO) {
+    public void updatePlante(@PathVariable("id") int id, @RequestBody PlanteDTO planteDTO) {
         Plante plante = new Plante(id, planteDTO.getNom(), planteDTO.getPoint_de_vie(), planteDTO.getAttaque_par_seconde(), planteDTO.getDegat_attaque(), planteDTO.getCout(), planteDTO.getSoleil_par_seconde(), planteDTO.getEffet(), planteDTO.getChemin_image());
         planteService.updatePlante(plante);
     }

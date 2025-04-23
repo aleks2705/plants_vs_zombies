@@ -38,7 +38,7 @@ public class MapController {
     }
 
     @PutMapping("/{id}")
-    public void updateMap(@PathVariable int id, @RequestBody MapDTO mapDTO) {
+    public void updateMap(@PathVariable("id") int id, @RequestBody MapDTO mapDTO) {
         Map map = new Map(id, mapDTO.getLigne(), mapDTO.getColonne(), mapDTO.getCheminImage());
         mapService.updateMap(map);
     }
