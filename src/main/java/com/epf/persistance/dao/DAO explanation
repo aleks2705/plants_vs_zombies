@@ -1,6 +1,0 @@
-Data Access Object = Like a middleman between the program and the db.
-It helps the program to get, save, or delete data without worying about how the db works
-
-If we switch db, we only update the DAO, not the whole program
-
-The DAO provides some specific data operations without exposing details of the db
