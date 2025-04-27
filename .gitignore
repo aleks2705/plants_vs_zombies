@@ -1,0 +1,17 @@
+# Ignore build files
+target/
+build/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore IDE settings
+.idea/
+*.iml
+
+# Ignore logs
+*.log
+
+# Ignore OS junk
+.DS_Store
+Thumbs.db
