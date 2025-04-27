@@ -52,7 +52,7 @@ export default function EndpointsPage(): JSX.Element {
       { id: '9', path: '/maps/1', method: 'PUT', description: 'Modifier une map', status: 'pending' },
       { id: '10', path: '/plantes/1', method: 'DELETE', description: 'Supprimer une plante', status: 'pending' },
       { id: '11', path: '/zombies/1', method: 'DELETE', description: 'Supprimer un zombie', status: 'pending' },
-      { id: '12', path: '/maps/1', method: 'DELETE', description: 'Supprimer une map', status: 'pending' },
+      { id: '12', path: '/maps/13', method: 'DELETE', description: 'Supprimer une map', status: 'pending' },
       { id: '13', path: '/plantes/validation', method: 'GET', description: 'Valider le format des plantes retournées', status: 'pending' },
       { id: '14', path: '/zombies/validation', method: 'GET', description: 'Valider le format des zombies retournés', status: 'pending' },
       { id: '15', path: '/maps/validation', method: 'GET', description: 'Valider le format des maps retournées', status: 'pending' }
@@ -233,8 +233,8 @@ export default function EndpointsPage(): JSX.Element {
             await deleteZombie(1)
             validationResult = { valid: true, message: "Zombie supprimé avec succès" }
           }
-          if (endpoint.path === "/maps/1") {
-            await deleteMap(1)
+          if (endpoint.path === "/maps/13") {
+            await deleteMap(13)
             validationResult = { valid: true, message: "Map supprimée avec succès" }
           }
           break
